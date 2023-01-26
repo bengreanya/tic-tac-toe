@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 const GameContext = createContext();
 const GameProvider = ({ children }) => {
@@ -23,7 +23,7 @@ const GameProvider = ({ children }) => {
   );
 };
 const useGameContext = () => {
-  const context = useGameContext(GameContext);
+  const context = useContext(GameContext);
   if (context === undefined) {
     throw new Error('useGameContext must be used within GameProvider');
   }

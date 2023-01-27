@@ -16,11 +16,13 @@ const GameProvider = ({ children }) => {
   const handleClick = (space) => {
     // board[space] = { space: space, content: currentPlayer };
     const newBoard = board.map((box) => {
-      if (box.space === space) box.content = currentPlayer;
+      if ((box.space === space) & (box.content === '')) {
+        box.content = currentPlayer;
+        currentPlayer === 'X' ? setCurrentPlayer('O') : setCurrentPlayer('X');
+      }
       return box;
     });
     setBoard(newBoard);
-    currentPlayer === 'X' ? setCurrentPlayer('O') : setCurrentPlayer('X');
   };
   const [active, setActive] = useState(true);
   const [message, setMessage] = useState('');

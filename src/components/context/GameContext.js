@@ -108,7 +108,6 @@ const GameProvider = ({ children }) => {
       value={{
         yesWin,
         checkWin,
-        checkScratch,
         board,
         setBoard,
         active,

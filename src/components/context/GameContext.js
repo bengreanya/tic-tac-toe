@@ -33,58 +33,73 @@ const GameProvider = ({ children }) => {
       (board[0].content !== '') &
       (board[2].content === board[0].content)
     ) {
-      setActive(false);
+      setActive(false) & alert(`${currentPlayer} WON!`);
     }
     if (
       (board[3].content === board[4].content) &
       (board[3].content !== '') &
       (board[5].content === board[3].content)
     ) {
-      setActive(false);
+      setActive(false) & alert(`${currentPlayer} WON!`);
     }
     if (
       (board[6].content === board[7].content) &
       (board[6].content !== '') &
       (board[8].content === board[6].content)
     ) {
-      setActive(false);
+      setActive(false) & alert(`${currentPlayer} WON!`);
     }
     if (
       (board[0].content === board[3].content) &
       (board[0].content !== '') &
       (board[6].content === board[0].content)
     ) {
-      setActive(false);
+      setActive(false) & alert(`${currentPlayer} WON!`);
     }
     if (
       (board[1].content === board[4].content) &
       (board[1].content !== '') &
       (board[7].content === board[1].content)
     ) {
-      setActive(false);
+      setActive(false) & alert(`${currentPlayer} WON!`);
     }
     if (
       (board[2].content === board[5].content) &
       (board[2].content !== '') &
       (board[8].content === board[5].content)
     ) {
-      setActive(false);
+      setActive(false) & alert(`${currentPlayer} WON!`);
     }
     if (
       (board[0].content === board[4].content) &
       (board[0].content !== '') &
       (board[8].content === board[0].content)
     ) {
-      setActive(false);
+      setActive(false) & alert(`${currentPlayer} WON!`);
     }
     if (
       (board[2].content === board[4].content) &
       (board[2].content !== '') &
       (board[6].content === board[2].content)
     ) {
-      setActive(false);
+      setActive(false) & alert(`${currentPlayer} WON!`);
     }
   };
+  // const checkScratch = () => {
+  //   if (
+  //     (board[0].content !== '') &
+  //     (board[1].content !== '') &
+  //     (board[2].content !== '') &
+  //     (board[3].content !== '') &
+  //     (board[4].content !== '') &
+  //     (board[5].content !== '') &
+  //     (board[6].content !== '') &
+  //     (board[7].content !== '') &
+  //     (board[8].content !== '') &
+  //     setActive(true)
+  //   )
+  //     setActive(false) & alert('CAT SCRATCH :/');
+  // };
   const [active, setActive] = useState(true);
   const [message, setMessage] = useState('');
   const [currentPlayer, setCurrentPlayer] = useState('X');
@@ -93,6 +108,7 @@ const GameProvider = ({ children }) => {
       value={{
         yesWin,
         checkWin,
+        checkScratch,
         board,
         setBoard,
         active,

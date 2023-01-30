@@ -8,7 +8,7 @@ export default function Board() {
   return (
     <>
       <div className="reset">
-        <button id="resetButton">Reset</button>
+        <button className="resetButton">Reset</button>
       </div>
       <div className="board">
         {board.map((box) => (

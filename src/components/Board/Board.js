@@ -6,10 +6,15 @@ import './Board.css';
 export default function Board() {
   const { board, setBoard } = useGameContext();
   return (
-    <div className="board">
-      {board.map((box) => (
-        <Box key={box.space} content={box.content} space={box.space} />
-      ))}
-    </div>
+    <>
+      <div className="reset">
+        <button id="resetButton">Reset</button>
+      </div>
+      <div className="board">
+        {board.map((box) => (
+          <Box key={box.space} content={box.content} space={box.space} />
+        ))}
+      </div>
+    </>
   );
 }

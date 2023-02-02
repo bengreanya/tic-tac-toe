@@ -96,10 +96,9 @@ const GameProvider = ({ children }) => {
       (board[5].content !== '') &
       (board[6].content !== '') &
       (board[7].content !== '') &
-      (board[8].content !== '') &
-      setActive(true)
+      (board[8].content !== '')
     )
-      setActive(false) & alert('CAT SCRATCH :/');
+      setActive(false) & setMessage('CAT SCRATCH :/');
   };
   const [active, setActive] = useState(true);
   const [message, setMessage] = useState('');

@@ -22,11 +22,12 @@ const GameProvider = ({ children }) => {
       return box;
     });
     setBoard(newBoard);
-    yesWin();
+    checkWin();
+    checkScratch();
   };
-  const yesWin = () => {
-    if (active === true) checkWin();
-  };
+  // const yesWin = () => {
+  //   if (active === true) checkWin();
+  // };
   const checkWin = () => {
     if (
       (board[0].content === board[1].content) &
@@ -85,32 +86,32 @@ const GameProvider = ({ children }) => {
       setActive(false) & alert(`${currentPlayer} WON!`);
     }
   };
-  // const checkScratch = () => {
-  //   if (
-  //     (board[0].content !== '') &
-  //     (board[1].content !== '') &
-  //     (board[2].content !== '') &
-  //     (board[3].content !== '') &
-  //     (board[4].content !== '') &
-  //     (board[5].content !== '') &
-  //     (board[6].content !== '') &
-  //     (board[7].content !== '') &
-  //     (board[8].content !== '') &
-  //     setActive(true)
-  //   )
-  //     setActive(false) & alert('CAT SCRATCH :/');
-  // };
+  const checkScratch = () => {
+    if (
+      (board[0].content !== '') &
+      (board[1].content !== '') &
+      (board[2].content !== '') &
+      (board[3].content !== '') &
+      (board[4].content !== '') &
+      (board[5].content !== '') &
+      (board[6].content !== '') &
+      (board[7].content !== '') &
+      (board[8].content !== '') &
+      setActive(true)
+    )
+      setActive(false) & alert('CAT SCRATCH :/');
+  };
   const [active, setActive] = useState(true);
   const [message, setMessage] = useState('');
   const [currentPlayer, setCurrentPlayer] = useState('X');
   return (
     <GameContext.Provider
       value={{
-        yesWin,
         checkWin,
         board,
         setBoard,
         active,
+        checkScratch,
         setActive,
         handleClick,
         currentPlayer,

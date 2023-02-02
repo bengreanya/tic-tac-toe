@@ -1,5 +1,10 @@
 .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: black solid 2px;
   height: 150px;
   width: 150px;
+  margin: 10px;
+  font-size: 100px;
 }

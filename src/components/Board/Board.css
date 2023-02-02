@@ -1,8 +1,4 @@
-.Board {
-  display: flex;
-}
 .board {
-  border: solid black 2px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 500px;

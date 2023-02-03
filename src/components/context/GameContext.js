@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const GameContext = createContext();
 const GameProvider = ({ children }) => {
-  const [board, setBoard] = useState([
+  const initialBoard = [
     { space: 0, content: '' },
     { space: 1, content: '' },
     { space: 2, content: '' },
@@ -12,23 +12,33 @@ const GameProvider = ({ children }) => {
     { space: 6, content: '' },
     { space: 7, content: '' },
     { space: 8, content: '' },
-  ]);
+  ];
+  const [active, setActive] = useState(true);
+  const [message, setMessage] = useState('Your Move, X');
+  const [currentPlayer, setCurrentPlayer] = useState('X');
+  const [board, setBoard] = useState(initialBoard);
   const handleClick = (space) => {
     const newBoard = board.map((box) => {
       if ((box.space === space) & (box.content === '') & (active === true)) {
         box.content = currentPlayer;
-        currentPlayer === 'X' ? setCurrentPlayer('O') : setCurrentPlayer('X');
+        currentPlayer === 'X'
+          ? setCurrentPlayer('O') & setMessage('Your Move, O')
+          : setCurrentPlayer('X') & setMessage('Your Move, X');
       }
       return box;
     });
     setBoard(newBoard);
-    checkWin();
     checkScratch();
+    checkWin();
   };
-  // const yesWin = () => {
-  //   if (active === true) checkWin();
-  // };
+  function reset() {
+    setBoard(initialBoard);
+    setCurrentPlayer('X');
+    setActive(true);
+    setMessage('Your Move, X');
+  }
   const checkWin = () => {
+    if (active === false) return;
     if (
       (board[0].content === board[1].content) &
       (board[0].content !== '') &
@@ -98,15 +108,14 @@ const GameProvider = ({ children }) => {
       (board[7].content !== '') &
       (board[8].content !== '')
     )
-      setActive(false) & setMessage('CAT SCRATCH :/');
+      setActive(false) & setMessage('CAT SCRATCH FEVER!');
   };
-  const [active, setActive] = useState(true);
-  const [message, setMessage] = useState('');
-  const [currentPlayer, setCurrentPlayer] = useState('X');
+
   return (
     <GameContext.Provider
       value={{
         checkWin,
+        reset,
         board,
         setBoard,
         active,

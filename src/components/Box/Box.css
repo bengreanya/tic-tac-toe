@@ -1,0 +1,9 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(25deg, #d8ccbb, #efe0cd, #d8ccbb);
+  height: 150px;
+  width: 150px;
+  font-size: 100px;
+}
